@@ -1,0 +1,68 @@
+.registration-form {
+    min-height: 95svh;
+    text-align: center;
+
+    background: linear-gradient(#000, rgba(0,0,0,0.5)), url("../img/background.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.registration-form h1 {
+    color: #fff;
+    font-size: clamp(1rem, 1rem + 5vw, 2.5rem);
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.registration-form form {
+    display: flex;
+    flex-direction: column;   
+    gap: .5rem;
+}
+
+.registration-form form input {
+    outline: none;
+    border: none;
+    padding: .3rem .5rem;
+    background-color: #ffffff20;
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.registration-form form input[type="submit"] {
+    padding: .5rem 1rem;
+    font-size: 1.1rem;
+    color: #fff;
+    border: none;
+    border-radius: 2rem;
+    background: #977900;
+    cursor: pointer;
+    width: fit-content;
+    margin-inline: auto;
+    margin-top: .5rem;
+    transition: all 100ms linear;
+}
+
+.registration-form form input[type="submit"]:hover {
+    background: #c39c00;
+}
+
+
+/* Classes for JavaScript */
+.valid {
+    color: #024e0e;
+}
+
+.invalid {
+    color: #ad0402;
+}

@@ -1,0 +1,32 @@
+header {
+    display: flex;
+    align-items: center;  
+    background-color: #060606;
+}
+
+.logo {       
+    flex-grow: 1;
+}
+
+.logo img {
+    width: 3rem;
+    margin: .5rem 1rem;
+}
+
+/* NAVIGACE */
+
+nav li {
+    display: inline-block;
+    list-style-type: none;
+    margin-right: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}

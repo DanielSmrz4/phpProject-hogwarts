@@ -1,0 +1,28 @@
+@media (width < 800px) {
+    header nav {
+        display: none;
+        position: absolute;
+        top: 4rem;
+        background-color: #060606;
+        width: 100%;
+    }
+
+    nav li {
+        display: block;
+        text-align: center;
+        margin-bottom: .5rem;
+    }
+
+    .menu-icon {
+        display: block;
+        color: #fff;
+        font-size: 1.4rem;
+        margin-right: 1rem;
+    }
+}
+
+@media (width > 801px) {
+    header nav {
+        display: block !important;
+    }
+}
