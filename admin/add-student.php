@@ -1,12 +1,13 @@
 <?php
-    require "../assets/database.php";
-    require "../assets/student.php";
-    require "../assets/auth.php";
-    require "../assets/url.php";
+
+    require "../classes/Database.php";
+    require "../classes/Url.php";
+    require "../classes/Student.php";
+    require "../classes/Auth.php";
 
     session_start();
 
-    if ( !isLoggedIn() ) {
+    if ( !Auth::isLoggedIn() ) {
         die("Nepovolený přístup!");
     }
     
@@ -28,7 +29,8 @@
         $life = $_POST["life"];
         $colledge = $_POST["colledge"];
 
-        $connection = connectionDB();
+        $database = new Database();
+        $connection = $database->connectionDB();
         
         // Kontrola aby nebyla žádná pole prázdná
         if ($_POST["first_name"] === "") {
@@ -53,10 +55,10 @@
 
         // Když jsou všechna pole vyplněna, přidáme studenta do databáze
         if (empty($errors)) {
-            $id = createStudent($connection, $first_name, $second_name, $age, $life, $colledge);
+            $id = Student::createStudent($connection, $first_name, $second_name, $age, $life, $colledge);
 
             if ($id) {
-                redirectUrl("/www2databaze/admin/one-student.php?id=$id");
+                Url::redirectUrl("/www2databaze/admin/one-student.php?id=$id");
             } else {
                 echo "Student was not created";
             }          

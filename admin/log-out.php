@@ -1,6 +1,7 @@
 <?php
 
 require "../assets/url.php";
+require "../classes/Url.php";
 
 
 // Initialize the session.
@@ -24,6 +25,6 @@ if (ini_get("session.use_cookies")) {
 session_destroy();
 
 // Redirect to main page
-redirectUrl("/www2databaze/index.php");
+Url::redirectUrl("/www2databaze/index.php");
 
 ?>

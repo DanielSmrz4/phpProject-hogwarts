@@ -1,21 +1,23 @@
 <?php
 
-require "../assets/url.php";
-require "../assets/database.php";
-require "../assets/user.php";
+require "../classes/Database.php";
+require "../classes/Url.php";
+require "../classes/User.php";
 
 session_start();
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $connection = connectionDB();
+    // $connection = connectionDB();
+    $database = new Database();
+    $connection = $database->connectionDB();
 
     $first_name = $_POST["first-name"];
     $second_name = $_POST["second-name"];
     $email = $_POST["email"];
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-    $id = createUser($connection, $first_name, $second_name, $email, $password);
+    $id = User::createUser($connection, $first_name, $second_name, $email, $password);
 
     if(!empty($id)) {
         // Zabraňuje provedení tzv. fixation attack
@@ -26,7 +28,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         // Nastavení ID uživatele
         $SESSION["logged_in_user_id"] = $id;
 
-        redirectUrl("/www2databaze/admin/students.php");
+        Url::redirectUrl("/www2databaze/admin/students.php");
+        
     } else {       
         echo "Uživatele se nepodařilo přidat";
     }
