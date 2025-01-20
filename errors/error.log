@@ -1,0 +1,21 @@
+15.01.2025 20:15 Exception at function updateStudent. Student update has failed.
+C:\Users\Dan\Dropbox\php\www2databaze\classes\Student.php line: 72
+
+15.01.2025 20:18 Exception at function deleteStudent. Deletion of student has failed.
+C:\Users\Dan\Dropbox\php\www2databaze\classes\Student.php line: 104
+
+15.01.2025 20:21 Exception at function deleteStudent. Loading all students data has failed.
+C:\Users\Dan\Dropbox\php\www2databaze\classes\Student.php line: 132
+
+15.01.2025 20:25 Exception at function deleteStudent. Student create has failed.
+C:\Users\Dan\Dropbox\php\www2databaze\classes\Student.php line: 173
+
+16.01.2025 18:43 Exception at function createUser. User creation has failed.
+C:\Users\Dan\Dropbox\php\www2databaze\classes\User.php line: 34
+
+16.01.2025 18:53 Exception at function authentication. Authentication has failed.
+C:\Users\Dan\Dropbox\php\www2databaze\classes\User.php line: 69
+
+16.01.2025 19:00 Exception at function getUserId. Getting user ID has failed.
+C:\Users\Dan\Dropbox\php\www2databaze\classes\User.php line: 105
+

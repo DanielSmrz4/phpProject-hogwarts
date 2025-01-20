@@ -13,20 +13,21 @@ class Student {
     public static function getStudent($connection, $id, $columns = "*") {
         $sql = "SELECT $columns
                 FROM student
-                where id= ?";
+                where id= :id";
         
-        $stmt = mysqli_prepare($connection, $sql);
+        $stmt = $connection->prepare($sql);
+        $stmt->bindValue(":id", $id, PDO::PARAM_INT);
 
-        if (!$stmt) {
-            echo mysqli_error($connection);
-        } else {
-            mysqli_stmt_bind_param($stmt, "i", $id);
-
-            if (mysqli_stmt_execute($stmt)) {
-                $result = mysqli_stmt_get_result($stmt);
-                return mysqli_fetch_array($result, MYSQLI_ASSOC);
+        try {
+            if ($stmt->execute()) {
+                return $stmt->fetch();
+            } else {
+                throw new Exception("Getting data about a student has failed");
             }
-        }
+        } catch (Exception $e) {
+            error_log(date("d.m.Y H:i ") . "Exception at function getStudent. Getting data about a student has failed.\n" . $e->getFile() . " line: " . $e->getLine() . "\n", 3, "../errors/error.log");
+            echo "Exception: " . $e->getMessage();
+        }          
     }
 
 
@@ -48,24 +49,34 @@ class Student {
     public static function updateStudent($connection, $first_name, $second_name, $age, $life, $colledge, $id) {
 
         $sql = "UPDATE student
-                    SET first_name = ?,
-                        second_name = ?,
-                        age = ?,
-                        life = ?,
-                        colledge = ?
-                    WHERE id = ?";
+                    SET first_name = :first_name,
+                        second_name = :second_name,
+                        age = :age,
+                        life = :life,
+                        colledge = :colledge
+                    WHERE id = :id";
 
-        $stmt = mysqli_prepare($connection, $sql);
+        $stmt = $connection->prepare($sql);
 
-        if (!$stmt) {
-            echo mysqli_error($connection);
-        } else {
-            mysqli_stmt_bind_param($stmt, "ssissi", $first_name, $second_name, $age, $life, $colledge, $id);
+        $stmt->bindValue(":first_name", $first_name, PDO::PARAM_STR);
+        $stmt->bindValue(":second_name", $second_name, PDO::PARAM_STR);
+        $stmt->bindValue(":age", $age, PDO::PARAM_INT);
+        $stmt->bindValue(":life", $life, PDO::PARAM_STR);
+        $stmt->bindValue(":colledge", $colledge, PDO::PARAM_STR);
+        $stmt->bindValue(":id", $id, PDO::PARAM_INT);
 
-            if (mysqli_stmt_execute($stmt)) {
-                return True;
+        try {
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                throw new Exception("Student update has failed");
             }
+        } catch (Exception $e) {
+            error_log(date("d.m.Y H:i ") . "Exception at function updateStudent. Student update has failed.\n" . $e->getFile() . " line: " . $e->getLine() . "\n\n", 3, "../errors/error.log");
+            echo "Exception: " . $e->getMessage();
         }
+        
+        
     }
 
 
@@ -81,19 +92,21 @@ class Student {
      */
     public static function deleteStudent($connection, $id) {
         $sql = "DELETE FROM student
-                WHERE id = ?";
+                WHERE id = :id";
         
-        $stmt = mysqli_prepare($connection, $sql);
+        $stmt = $connection->prepare($sql);
+        $stmt->bindValue(":id", $id, PDO::PARAM_INT);
 
-        if (!$stmt) {
-            echo mysqli_error($connection);
-        } else {
-            mysqli_stmt_bind_param($stmt, "i", $id);
-
-            if(mysqli_stmt_execute($stmt)) {
-                return True;
+        try {
+            if($stmt->execute()) {
+                return true;
+            } else {
+                throw new Exception("Deletion of student has failed");
             }
-        }
+        } catch (Exception $e) {
+            error_log(date("d.m.Y H:i ") . "Exception at function deleteStudent. Deletion of student has failed.\n" . $e->getFile() . " line: " . $e->getLine() . "\n\n", 3, "../errors/error.log");
+            echo "Exception: " . $e->getMessage();
+        }       
     }
 
 
@@ -106,18 +119,23 @@ class Student {
      * @return array pole objektů, kde každý objekt je jeden žák  
      * 
      */
-    function getAllStudents($connection, $columns = "*") {
+    public static function getAllStudents($connection, $columns = "*") {
         $sql = "SELECT $columns 
                 FROM student";
 
-        $result = mysqli_query($connection, $sql);
+        $stmt = $connection->prepare($sql);
 
-        if(!$result) {
-            mysqli_error($connection);
-        } else {
-            $students = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            return $students;
+        try {
+            if ($stmt->execute()){
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } else {
+                throw new Exception("Loading all students has failed.");
+            }
+        } catch (Exception $e) {
+            error_log(date("d.m.Y H:i ") . "Exception at function deleteStudent. Loading all students has failed.\n" . $e->getFile() . " line: " . $e->getLine() . "\n\n", 3, "../errors/error.log");
+            echo "Exception: " . $e->getMessage();
         }
+        
     }
 
 
@@ -135,26 +153,28 @@ class Student {
      * @return int $id - ID of created student
      * 
      */
-    function createStudent($connection, $first_name, $second_name, $age, $life, $colledge) {
+    public static function createStudent($connection, $first_name, $second_name, $age, $life, $colledge) {
         $sql = "INSERT INTO student (first_name, second_name, age, life, colledge)
-                        VALUES (?, ?, ?, ?, ?)";
+                VALUES (:first_name, :second_name, :age, :life, :colledge)";
 
-        $statement = mysqli_prepare($connection, $sql);
+        $stmt = $connection->prepare($sql);
 
-        if ($statement === false) {
-            echo mysqli_error($connection);
-        } else {
-            mysqli_stmt_bind_param($statement, "ssiss", $first_name, $second_name, $age, $life, $colledge);
+        $stmt->bindValue(":first_name", $first_name, PDO::PARAM_STR);
+        $stmt->bindValue(":second_name", $second_name, PDO::PARAM_STR);
+        $stmt->bindValue(":age", $age, PDO::PARAM_INT);
+        $stmt->bindValue(":life", $life, PDO::PARAM_STR);
+        $stmt->bindValue(":colledge", $colledge, PDO::PARAM_STR);
 
-            // Provedení
-            if (mysqli_stmt_execute($statement)) {
-                $id = mysqli_insert_id($connection);
-
+        try {
+            if ($stmt->execute()) {
+                $id = $connection->lastInsertId();
                 return $id;
-
             } else {
-                echo mysqli_stmt_error($statement);
-            }
-        }
+                throw new Exception("Student creation has failed. ");
+            }     
+        } catch (Exception $e) {
+            error_log(date("d.m.Y H:i ") . "Exception at function createStudent. Student creation has failed.\n" . $e->getFile() . " line: " . $e->getLine() . "\n\n", 3, "../errors/error.log");
+            echo "Exception: " . $e->getMessage();
+        }      
     }
 }
