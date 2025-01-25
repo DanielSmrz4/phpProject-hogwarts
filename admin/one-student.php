@@ -43,23 +43,23 @@
 
     <main>
         <section class="main-heading">
-            <h1>Více informací o žákovi</h1>
+            <h1>More information</h1>
         </section>
 
         <section>           
-            <?php if($student === null): ?>
-                <p>Žák nenalezen</p>
+            <?php if($student === null or $student === false): ?>
+                <p>Student not found</p>
             <?php else: ?>
                 <h2><?php echo htmlspecialchars($student["first_name"]). " ".htmlspecialchars($student["second_name"]) ?></h2>
-                <p>Věk: <?= htmlspecialchars($student["age"]) ?> let</p>
-                <p>Studijní přehled: <?= htmlspecialchars($student["life"]) ?></p>
-                <p>Kolej: <?= htmlspecialchars($student["colledge"]) ?></p>
+                <p>Age: <?= htmlspecialchars($student["age"]) ?> let</p>
+                <p>Student records: <?= htmlspecialchars($student["life"]) ?></p>
+                <p>Collegde: <?= htmlspecialchars($student["colledge"]) ?></p>
             <?php endif ?>
         </section>
 
         <section class="buttons">
-                <a href="./edit-student.php?id=<?= $student['id'] ?>">Editovat</a>
-                <a href="./delete-student.php?id=<?= $student['id'] ?>">Vymazat</a>
+                <a href="./edit-student.php?id=<?= $student['id'] ?>">Edit</a>
+                <a href="./delete-student.php?id=<?= $student['id'] ?>">Delete</a>
         </section>
     </main>
 

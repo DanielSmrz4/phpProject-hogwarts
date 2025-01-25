@@ -7,7 +7,7 @@
     session_start();
 
     if ( !Auth::isLoggedIn() ) {
-        die("Nepovolený přístup!");
+        die("unauthorized access");
     }
 
     // $connection = connectionDB();
@@ -39,18 +39,18 @@
 
     <main>
         <section class="main-heading">
-            <h1>Seznam žáků</h1>
+            <h1>Students list</h1>
         </section>
 
         <section class="student_list">       
             <?php if (empty($students)): ?>
-                <p>Seznam žáků je prázdný</p>
+                <p>List is empty</p>
             <?php else: ?>
                 <ul>
                     <?php foreach($students as $one_student): ?>
                         <li>
                             <?= htmlspecialchars($one_student["first_name"])." ".htmlspecialchars($one_student["second_name"]) ?>
-                            <a href="./one-student.php?id=<?=$one_student['id']?>">Více informací</a>
+                            <a href="./one-student.php?id=<?=$one_student['id']?>">More information</a>
                         </li>
                     <?php endforeach ?>
                 </ul>

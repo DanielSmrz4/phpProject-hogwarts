@@ -8,7 +8,7 @@
     session_start();
 
     if ( !Auth::isLoggedIn() ) {
-        die("Nepovolený přístup!");
+        die("unauthorized access");
     }
     
 
@@ -86,6 +86,10 @@
     <?php require "../assets/admin-header.php"; ?>
 
     <main>
+        <section class="main-heading">
+            <h1>Add student</h1>
+        </section>
+
         <section class="add-form">
             <?php if($errors): ?>
             <?php foreach($errors as $error): ?>

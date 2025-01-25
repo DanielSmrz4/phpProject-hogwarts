@@ -20,15 +20,15 @@
 
     <main>
         <section class="registration-form">
-            <h1>Registrace</h1>
+            <h1>Registration</h1>
             <form action="admin/after-registration.php" method="POST">
-                <input type="text" name="first-name" placeholder="Křestní jméno">
-                <input type="text" name="second-name" placeholder="Příjmení">
+                <input type="text" name="first-name" placeholder="First name">
+                <input type="text" name="second-name" placeholder="Second name">
                 <input type="email" name="email" placeholder="Email">
-                <input class="password-first" type="password" name="password" placeholder="Heslo">
-                <input class="password-second" type="password" placeholder="Heslo znovu">
+                <input class="password-first" type="password" name="password" placeholder="Password">
+                <input class="password-second" type="password" placeholder="Password again">
                 <p class="result-text"></p>
-                <input type="submit" value="Zaregistrovat">
+                <input type="submit" value="Sign up">
             </form>
         </section>
     </main>

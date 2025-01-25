@@ -48,8 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <section class="delete-from">
             <form method="POST">
                 <a href="./one-student.php?id=<?=$one_student['id']?>">Zpět</a>
-                <p>Opravdu si přejete vymazat údaje o žákovi <?= $one_student["first_name"] ." ". $one_student["second_name"]?>?</p>
-                <button>Smazat trvale</button>               
+                <p>Do you really wish to delete student <?= $one_student["first_name"] ." ". $one_student["second_name"]?>?</p>
+                <button>Delete</button>               
             </form>
         </section>
     </main>

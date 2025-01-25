@@ -6,9 +6,9 @@
     </div>          
     <nav>
         <ul>
-            <li><a href="index.php">Úvodní strana</a></li>
-            <li><a href="registration-form.php">Registrace</a></li>
-            <li><a href="sign-in.php">Přihlášení</a></li>
+            <li><a href="index.php">Main page</a></li>
+            <li><a href="registration-form.php">Registration</a></li>
+            <li><a href="sign-in.php">Log in</a></li>
         </ul>
     </nav>
     <div class="menu-icon">

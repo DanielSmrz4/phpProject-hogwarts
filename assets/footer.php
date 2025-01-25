@@ -1,3 +1,3 @@
 <footer>
-    <p>&copy; Škola čar a kouzel v Bradavicích, Daniel Smrž</p>
+    <p>&copy; Hogwarts School of Withcraft and Wizardry, Daniel Smrž</p>
 </footer>

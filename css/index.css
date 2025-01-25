@@ -25,15 +25,16 @@ main {
 
 .main-heading h1 {
     color: #fff;
-    font-size: clamp(2rem, 1rem + 5vw, 4rem);
-    letter-spacing: 2px;
+    font-size: clamp(2.25rem, 1rem + 5vw, 4rem);
+    letter-spacing: 1px;
     font-weight: 400;
     animation: fade-in 2500ms ease;
+    margin-bottom: 1rem;
 }
 
 .main-heading h2 {
     color: #fff;
-    font-size: clamp(1rem, 1rem + 5vw, 2.5rem);
+    font-size: clamp(1rem, .5rem + 5vw, 2rem);
     letter-spacing: 1px;
     font-weight: 300;
     animation: from-bottom 2500ms ease;

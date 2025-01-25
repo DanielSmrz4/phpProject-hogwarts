@@ -1,12 +1,12 @@
 <form action="" method="POST">
     <input  type="text"
             name="first_name"
-            placeholder="Křestní jméno"
+            placeholder="First name"
             value="<?=htmlspecialchars($first_name)?>"
     >
     <input  type="text"
             name="second_name"
-            placeholder="Příjmení"
+            placeholder="Second name"
             value="<?=htmlspecialchars($second_name)?>"
     >
     <input  type="number"
@@ -16,12 +16,12 @@
             value="<?=htmlspecialchars($age)?>"
     >
     <textarea name="life"
-                placeholder="Studijní přehled"
+                placeholder="Student records"
                 ><?=htmlspecialchars($life)?></textarea>
     <input  type="text"
             name="colledge"
-            placeholder="Kolej"
+            placeholder="Colledge"
             value="<?=htmlspecialchars($colledge)?>"
     >
-    <input type="submit" value="Uložit">
+    <input type="submit" value="Save">
 </form>

@@ -20,11 +20,11 @@
 
     <main>       
         <section class="form">
-            <h1>Přihlášení</h1>
+            <h1>Log in</h1>
             <form action="./admin/log-in.php" method="POST">
                 <input class="email" type="email" name="login-email" placeholder="Email">
-                <input class="password" type="password" name="login-password" placeholder="Heslo">
-                <input class="btn" type="submit" value="Přihlásit se">
+                <input class="password" type="password" name="login-password" placeholder="Password">
+                <input class="btn" type="submit" value="Submit">
             </form>
         </section>
     </main>

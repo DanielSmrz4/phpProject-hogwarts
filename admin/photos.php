@@ -1,12 +1,20 @@
 <?php
 
     require "../classes/Auth.php";
+    require "../classes/Image.php";
+    require "../classes/Database.php";
 
     session_start();
 
     if (!Auth::isLoggedIn()) {
-        die();
+        die("unauthorized access");
     }
+
+    $db = new Database();
+    $conn = $db->connectionDB();
+    $user_id = $_SESSION["logged_in_user_id"];
+
+    $all_images = Image::getImagesByUserId($conn, $user_id);
 
 ?>
 
@@ -36,6 +44,23 @@
                 <input type="file" name="image" required>
                 <input type="submit" name="submit" value="Upload">
             </form>
+        </section>
+
+        <section class="images">
+            <article>
+                <?php foreach($all_images as $one_image): ?>
+                    <div>
+                        <div>
+                            <img src=<?="../uploads/". $user_id ."/". $one_image["image_name"]?>>
+                        </div>
+                        <div>
+                            <a href=<?="../uploads/". $user_id ."/". $one_image["image_name"]?> download="download-img">Downlaod</a>
+                            <a href="delete-photo.php?id=<?=$user_id?>&image_name=<?=$one_image["image_name"]?>">Delete</a>
+                        </div>
+                    </div>
+                    
+                <?php endforeach; ?>
+            </article>
         </section>
     </main>
 

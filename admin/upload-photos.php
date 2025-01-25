@@ -8,7 +8,7 @@
     session_start();
 
     if (!Auth::isLoggedIn()) {
-        die();
+        die("unauthorized access");
     }
 
     $user_id = $_SESSION["logged_in_user_id"];
@@ -18,7 +18,6 @@
         $db = new Database();
         $connection = $db->connectionDB();
 
-        var_dump($_FILES["image"]);
         $image_name = $_FILES["image"]["name"];
         $image_size = $_FILES["image"]["size"];
         $image_tmp_name = $_FILES["image"]["tmp_name"];
@@ -26,8 +25,7 @@
 
         if ($error === 0) {
             if ($image_size > 9000000) {
-                $error_message = "Size of the file is too big.";
-                echo $error_message;
+                Url::redirectUrl("/hogwarts-project/errors/error-page.php?error_text=Image file size is too large");
             } else {
                 $image_extension = pathinfo($image_name, PATHINFO_EXTENSION);
                 $image_extension_lower_case = strtolower($image_extension);
@@ -53,11 +51,11 @@
                     }
                     
                 } else {
-                    Url::redirectUrl("/hogwarts-project/admin/photos.php");
+                    Url::redirectUrl("/hogwarts-project/errors/error-page.php?error_text=Unsupported type of file");
                 }
             }
         } else {
-            Url::redirectUrl("/hogwarts-project/admin/photos.php");
+            Url::redirectUrl("/hogwarts-project/errors/error-page.php?error_text=Could not upload the image file");
         }
     }
 

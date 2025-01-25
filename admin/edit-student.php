@@ -66,8 +66,8 @@
 
     <main>
         <section class="main-heading">
-            <h1>Editace žáka</h1>
-            <a href="./one-student.php?id=<?= $_GET['id']; ?>">Zpět</a>
+            <h1>Edit student</h1>
+            <a href="./one-student.php?id=<?= $_GET['id']; ?>">Back</a>
         </section>
 
         <section>

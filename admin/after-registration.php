@@ -34,5 +34,5 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         echo " User wasn't created.";
     }
 } else {
-    echo "Nepovolený přístup!";
+    echo "unauthorized access";
 }

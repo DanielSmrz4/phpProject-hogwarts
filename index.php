@@ -21,8 +21,8 @@
     <main>       
         <section class="main-heading">
             <img src="./img/hogwarts-logo.png" alt="Hogwarts logo">
-            <h1>Škola čar a&nbsp;kouzel</h1>
-            <h2>Bradavice</h2>
+            <h1>Hogwarts</h1>
+            <h2>School of Witchcraft and&nbsp;Wizardry</h2>
         </section>
     </main>
 
