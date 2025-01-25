@@ -1,0 +1,78 @@
+main {
+    min-height: 95svh;
+    background: linear-gradient(#000, rgba(0,0,0,0.5)), url("../img/hogwarts-admin-background-2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+.one-student {
+    padding-inline: .75rem;
+}
+
+.one-student h2 {
+    text-align: center;
+    font-size: clamp(1rem, 1rem + 5vw, 2.5rem);
+    letter-spacing: 1px;
+    font-weight: 300;
+    padding-block: 3rem;
+}
+
+.description {
+    max-width: 500px;
+    margin-inline: auto;
+    padding: 1rem;
+    background-color: #ffffff20;
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    font-size: 1.25rem;   
+    margin-inline: auto;
+    font-weight: 300;
+}
+
+.description .stand-out {
+    color: #c39c00;
+}
+
+.buttons {
+    max-width: 500px;
+    margin-inline: auto;
+    display: flex;
+    gap: 1rem;
+    justify-content: end;
+    align-items: center;
+    margin-block-start: 1.5rem;
+}
+
+.buttons a {
+    display: inline;
+    font-size: .75rem;
+    padding-block: .3rem;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    background: #977900;
+    cursor: pointer;
+    width: 60px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 100ms linear;
+}
+
+.buttons a:hover {
+    background: #c39c00;
+} 
+
+.delete-btn {
+    background: #821901 !important;
+}
+
+.delete-btn:hover {
+    background: #aa2102 !important;
+}
+    

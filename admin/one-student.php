@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../query/header-query.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/admin-one-student.css">
 
     <script src="https://kit.fontawesome.com/0f9ae4d401.js" crossorigin="anonymous"></script>
 
@@ -42,25 +43,26 @@
     <?php require "../assets/admin-header.php"; ?>
 
     <main>
-        <section class="main-heading">
-            <h1>More information</h1>
-        </section>
 
-        <section>           
+        <section class="one-student">           
             <?php if($student === null or $student === false): ?>
                 <p>Student not found</p>
             <?php else: ?>
-                <h2><?php echo htmlspecialchars($student["first_name"]). " ".htmlspecialchars($student["second_name"]) ?></h2>
-                <p>Age: <?= htmlspecialchars($student["age"]) ?> let</p>
-                <p>Student records: <?= htmlspecialchars($student["life"]) ?></p>
-                <p>Collegde: <?= htmlspecialchars($student["colledge"]) ?></p>
+                    <h2><?php echo htmlspecialchars($student["first_name"]). " ".htmlspecialchars($student["second_name"]) ?></h2>
+                    <div class="description">
+                        <p><span class="stand-out">Age:</span> <?= htmlspecialchars($student["age"]) ?> let</p>
+                        <p><span class="stand-out">Student records:</span> <?= htmlspecialchars($student["life"]) ?></p>
+                        <p><span class="stand-out">Collegde:</span> <?= htmlspecialchars($student["colledge"]) ?></p>
+                    </div>                                   
             <?php endif ?>
         </section>
 
         <section class="buttons">
+            <a href="./students.php">Back</a>
                 <a href="./edit-student.php?id=<?= $student['id'] ?>">Edit</a>
-                <a href="./delete-student.php?id=<?= $student['id'] ?>">Delete</a>
+                <a class="delete-btn" href="./delete-student.php?id=<?= $student['id'] ?>">Delete</a>
         </section>
+
     </main>
 
     <?php require "../assets/footer.php"; ?>
