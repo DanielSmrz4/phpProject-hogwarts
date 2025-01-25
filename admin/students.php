@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../query/header-query.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/admin-students.css">
 
     <script src="https://kit.fontawesome.com/0f9ae4d401.js" crossorigin="anonymous"></script>
 
@@ -46,14 +47,15 @@
             <?php if (empty($students)): ?>
                 <p>List is empty</p>
             <?php else: ?>
-                <ul>
+                <div class="all-students">
                     <?php foreach($students as $one_student): ?>
-                        <li>
-                            <?= htmlspecialchars($one_student["first_name"])." ".htmlspecialchars($one_student["second_name"]) ?>
+                        <div class="one-student">
+                            <h2><?= htmlspecialchars($one_student["first_name"])." ".htmlspecialchars($one_student["second_name"]) ?></h2>
                             <a href="./one-student.php?id=<?=$one_student['id']?>">More information</a>
-                        </li>
+                        </div>
                     <?php endforeach ?>
-                </ul>
+                </div>
+
             <?php endif ?>
         </section>
     </main>

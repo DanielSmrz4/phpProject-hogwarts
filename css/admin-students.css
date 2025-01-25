@@ -1,0 +1,55 @@
+main {
+    min-height: 95svh;
+    background: linear-gradient(#000, rgba(0,0,0,0.5)), url("../img/hogwarts-admin-background-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+.main-heading h1 {
+    text-align: center;
+    font-size: clamp(1rem, 1rem + 5vw, 2.5rem);
+    letter-spacing: 1px;
+    font-weight: 300;
+    padding-block: 3rem;
+}
+
+.all-students {
+    max-width: 80rem;
+    margin-inline: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: .75rem;
+}
+
+.one-student {
+    min-width: 300px;
+    padding: .5rem 1rem;
+    background-color: #ffffff20;
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    transition: 300ms ease-out;
+}
+
+.one-student:hover {
+    scale: 1.02;
+}
+
+.one-student h2 {
+    font-weight: 300;
+}
+
+.one-student a {
+    color: #c39c00;
+    font-size: .75rem;
+    text-decoration: none;
+    text-underline-offset: 2px;
+}
+
+.one-student a:hover {
+    text-decoration: underline;
+}
