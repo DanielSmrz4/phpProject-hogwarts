@@ -20,7 +20,7 @@
     <main>
         <section class="errors">
             <p> <?=$error_text?> </p>
-            <a href="../admin/students.php">Back</a>
+            <a href="../admin/students.php">Back to administration</a>
         </section>
     </main>
 
