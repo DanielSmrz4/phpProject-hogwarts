@@ -23,10 +23,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         session_regenerate_id(true);
 
         // Nastavení, že je uživatel přihlášený
-        $_SESSION["is_logged_in"] = true;
-
+        $_SESSION["is_logged_in"] = true;        
         // Nastavení ID uživatele
         $_SESSION["logged_in_user_id"] = $id;
+        // Nastavení role uživatele
+        $_SESSION["role"] = User::getUserRole($connection, $id);
 
         Url::redirectUrl("/hogwarts-project/admin/students.php");
 

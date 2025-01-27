@@ -11,6 +11,8 @@
         die("Nepovolený přístup!");
     }
 
+    $role = $_SESSION["role"];
+
     $database = new Database();
     $connection = $database->connectionDB();
 
@@ -56,6 +58,7 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../query/header-query.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/admin-edit-student.css">
 
     <script src="https://kit.fontawesome.com/0f9ae4d401.js" crossorigin="anonymous"></script>
 
@@ -65,14 +68,16 @@
     <?php require "../assets/admin-header.php"; ?>
 
     <main>
-        <section class="main-heading">
-            <h1>Edit student</h1>
-            <a href="./one-student.php?id=<?= $_GET['id']; ?>">Back</a>
-        </section>
-
-        <section>
+        <?php if($role === "admin"): ?>
+            <div class="top-part">
+                <h2>Edit student</h2>
+                <a href="./one-student.php?id=<?= $_GET['id']; ?>">Back</a>
+            </div>
+            
             <?php require "../assets/form-student.php" ?>
-        </section>
+        <?php else: ?>
+            <p>This page is for admin only, get out</p>
+        <?php endif; ?>
     </main>
 
     <?php require "../assets/footer.php"; ?>

@@ -43,6 +43,10 @@
             <h1>Students list</h1>
         </section>
 
+        <section class="filter">
+            <input type="text" class="filter-input" placeholder="Search">
+        </section>
+
         <section class="student_list">       
             <?php if (empty($students)): ?>
                 <p>List is empty</p>
@@ -62,5 +66,6 @@
 
     <?php require "../assets/footer.php"; ?>
     <script src="../js/header.js"></script>     
+    <script src="../js/filter.js"></script>     
 </body>
 </html>

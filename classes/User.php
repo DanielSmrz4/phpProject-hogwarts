@@ -15,9 +15,9 @@ class User {
      * @return integer $id - id uživatele
      * 
      */
-    public static function createUser($connection, $first_name, $second_name, $email, $password) {
-        $sql = "INSERT INTO user (first_name, second_name, email, password)
-                        VALUES (:first_name, :second_name, :email, :password)";
+    public static function createUser($connection, $first_name, $second_name, $email, $password, $role) {
+        $sql = "INSERT INTO user (first_name, second_name, email, password, role)
+                        VALUES (:first_name, :second_name, :email, :password, :role)";
 
         $stmt = $connection->prepare($sql);
    
@@ -25,6 +25,7 @@ class User {
         $stmt->bindValue(":second_name", $second_name, PDO::PARAM_STR);
         $stmt->bindValue(":email", $email, PDO::PARAM_STR);
         $stmt->bindValue(":password", $password, PDO::PARAM_STR);
+        $stmt->bindValue(":role", $role, PDO::PARAM_STR);
 
         try {
             if ($stmt->execute()) {
@@ -37,8 +38,7 @@ class User {
         } catch (Exception $e) {
             error_log(date("d.m.Y H:i ") . "Exception at function createUser. User creation has failed.\n" . $e->getFile() . " line: " . $e->getLine() . "\n\n", 3, "../errors/error.log");
             echo "Exception: " . $e->getMessage();
-        }
-        
+        }        
     }
 
 
@@ -106,6 +106,39 @@ class User {
             }
         } catch (Exception $e) {
             error_log(date("d.m.Y H:i ") . "Exception at function getUserId. Getting user ID has failed.\n" . $e->getFile() . " line: " . $e->getLine() . "\n\n", 3, "../errors/error.log");
+            echo "Exception: " . $e->getMessage();
+        }
+    }
+
+
+    /**
+     * 
+     * Gets user role from database
+     * 
+     * @param object $connection - connection to database
+     * @param string $email - user's email
+     * 
+     * @return int - $user_id - users's ID
+     * 
+     */
+    public static function getUserRole($connection, $id) {
+
+        $sql = "SELECT role
+                FROM user
+                WHERE id = :id";
+
+        $stmt = $connection->prepare($sql);
+        $stmt->bindValue(":id", $id, PDO::PARAM_INT);
+
+        try {
+            if ($stmt->execute()) {
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                return $result["role"];
+            } else {
+                throw new Exception("Getting user role has failed. ");
+            }
+        } catch (Exception $e) {
+            error_log(date("d.m.Y H:i ") . "Exception at function getUserRole. Getting user role has failed.\n" . $e->getFile() . " line: " . $e->getLine() . "\n\n", 3, "../errors/error.log");
             echo "Exception: " . $e->getMessage();
         }
     }

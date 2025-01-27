@@ -34,23 +34,23 @@
         
         // Kontrola aby nebyla žádná pole prázdná
         if ($_POST["first_name"] === "") {
-            $errors[] = "Křestní jméno je povinné";
+            $errors[] = "First name is mandatory";
         }
         
         if ($_POST["second_name"] === "") {
-            $errors[] = "Příjmení je povinné";
+            $errors[] = "Second name is mandatory";
         }
 
         if ($_POST["age"] === "") {
-            $errors[] = "Věk je povinný";
+            $errors[] = "Age is mandatory";
         }
 
         if ($_POST["life"] === "") {
-            $errors[] = "Studijní přehled je povinný";
+            $errors[] = "Student records is mandatory";
         }
 
         if ($_POST["colledge"] === "") {
-            $errors[] = "Kolej je povinná";
+            $errors[] = "Collegde is mandatory";
         }
 
         // Když jsou všechna pole vyplněna, přidáme studenta do databáze
@@ -77,6 +77,7 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../query/header-query.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/admin-add-student.css">
 
     <script src="https://kit.fontawesome.com/0f9ae4d401.js" crossorigin="anonymous"></script>
 
@@ -86,17 +87,19 @@
     <?php require "../assets/admin-header.php"; ?>
 
     <main>
-        <section class="main-heading">
-            <h1>Add student</h1>
-        </section>
-
         <section class="add-form">
-            <?php if($errors): ?>
-            <?php foreach($errors as $error): ?>
-                <p><?= $error ?></p>
-            <?php endforeach ?>
-            <?php endif ?>
-            <?php require "../assets/form-student.php"; ?>
+            <div class="top-part">
+                <h2>Add new</h2>
+                <a href="./students.php">Back</a>
+            </div>
+            <div class="errors">
+                <?php if($errors): ?>
+                <?php foreach($errors as $error): ?>
+                    <p><?= $error ?></p>
+                <?php endforeach ?>
+                <?php endif ?>                
+            </div>
+            <?php require "../assets/form-student.php"; ?>         
         </section>
     </main>
 

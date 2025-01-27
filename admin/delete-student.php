@@ -11,6 +11,8 @@ if ( !Auth::isLoggedIn() ) {
     die("Nepovolený přístup!");
 }
 
+$role = $_SESSION["role"];
+
 // $connection = connectionDB();
 $database = new Database();
 $connection = $database->connectionDB();
@@ -45,13 +47,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php require "../assets/admin-header.php"; ?>
 
     <main>
-        <section class="delete-from">
-            <form method="POST">
-                <a href="./one-student.php?id=<?=$one_student['id']?>">Zpět</a>
-                <p>Do you really wish to delete student <?= $one_student["first_name"] ." ". $one_student["second_name"]?>?</p>
-                <button>Delete</button>               
-            </form>
-        </section>
+
+        <?php if($role === "admin"): ?>
+            <section class="delete-from">
+                <form method="POST">
+                    <a href="./one-student.php?id=<?=$one_student['id']?>">Zpět</a>
+                    <p>Do you really wish to delete student <?= $one_student["first_name"] ." ". $one_student["second_name"]?>?</p>
+                    <button>Delete</button>               
+                </form>
+            </section>
+        <?php else: ?>
+            <section>
+                <p>This page is for admin only, get out</p>
+            </section>
+        <?php endif; ?>
+
     </main>
     
     <?php require "../assets/footer.php" ?>

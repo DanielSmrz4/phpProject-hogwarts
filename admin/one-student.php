@@ -10,6 +10,8 @@
         die("Nepovolený přístup!");
     }
 
+    $role = $_SESSION["role"]; 
+
     // $connection = connectionDB(); 
     $database = new Database();
     $connection = $database->connectionDB();
@@ -46,7 +48,7 @@
 
         <section class="one-student">           
             <?php if($student === null or $student === false): ?>
-                <p>Student not found</p>
+                <p class="error-message">Student not found</p>
             <?php else: ?>
                     <h2><?php echo htmlspecialchars($student["first_name"]). " ".htmlspecialchars($student["second_name"]) ?></h2>
                     <div class="description">
@@ -57,11 +59,12 @@
             <?php endif ?>
         </section>
 
-        <section class="buttons">
-            <a href="./students.php">Back</a>
-                <a href="./edit-student.php?id=<?= $student['id'] ?>">Edit</a>
-                <a class="delete-btn" href="./delete-student.php?id=<?= $student['id'] ?>">Delete</a>
-        </section>
+        <?php if($role === "admin"): ?>
+            <div class="buttons">
+                <a class="edit-btn" href="./edit-student.php?id=<?= $student['id'] ?>">Edit</a>
+                <a class="delete-btn" href="./delete-student.php?id=<?= $student['id'] ?>">Delete</a>         
+            </div>
+        <?php endif; ?>
 
     </main>
 

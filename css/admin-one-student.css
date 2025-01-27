@@ -6,27 +6,33 @@ main {
     background-position: center;
     background-attachment: fixed;
     color: #fff;
+    padding: 2rem .75rem;
 }
 
 .one-student {
     padding-inline: .75rem;
-}
-
-.one-student h2 {
-    text-align: center;
-    font-size: clamp(1rem, 1rem + 5vw, 2.5rem);
-    letter-spacing: 1px;
-    font-weight: 300;
-    padding-block: 3rem;
-}
-
-.description {
     max-width: 500px;
     margin-inline: auto;
     padding: 1rem;
     background-color: #ffffff20;
     backdrop-filter: blur(5px);
     border-radius: 5px;
+}
+
+.error-message {
+    display: block;
+    text-align: center;
+    padding-block: 3rem;
+}
+
+.one-student h2 {
+    text-align: center;
+    font-weight: 300;
+    padding-block: .5rem 1.5rem;
+    font-size: 1.75rem;
+}
+
+.description {
     display: flex;
     flex-direction: column;
     gap: .75rem;
@@ -44,7 +50,7 @@ main {
     margin-inline: auto;
     display: flex;
     gap: 1rem;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
     margin-block-start: 1.5rem;
 }
@@ -56,7 +62,6 @@ main {
     color: #fff;
     border: none;
     border-radius: 5px;
-    background: #977900;
     cursor: pointer;
     width: 60px;
     text-align: center;
@@ -64,15 +69,21 @@ main {
     transition: all 100ms linear;
 }
 
-.buttons a:hover {
-    background: #c39c00;
+.edit-btn {
+    background: #043f76;
+    outline: solid 2px #085cab;
+}
+
+.edit-btn:hover {
+    background: #085cab;
 } 
 
 .delete-btn {
-    background: #821901 !important;
+    background: #821901;
+    outline: solid 2px #aa2102;
 }
 
 .delete-btn:hover {
-    background: #aa2102 !important;
+    background: #aa2102;
 }
     

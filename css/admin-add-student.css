@@ -1,0 +1,94 @@
+main {
+    min-height: 95svh;
+    background: linear-gradient(#000, rgba(0,0,0,0.5)), url("../img/hogwarts-admin-background-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    padding: 2rem .75rem;
+}
+
+.top-part {
+    max-width: 300px;
+    margin-inline: auto;
+    padding-block-end: 1rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.top-part h2 {
+    font-weight: 300;
+    font-size: 1.75rem;
+}
+
+.top-part a {
+    color: #c39c00;
+    font-size: .75rem;
+    text-decoration: none;
+    text-underline-offset: 2px;
+}
+
+.top-part a:hover {
+    text-decoration: underline;
+}
+
+.errors {
+    max-width: 300px;
+    margin-inline: auto;
+    text-align: center;
+    padding-block-end: 1rem;
+    color: #821901;
+}
+
+form {
+    max-width: 300px;
+    margin-inline: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+form input, textarea {
+    outline: none;
+    border: none;
+    padding: .3rem .5rem;
+    background-color: #ffffff20;
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+form textarea {
+    scrollbar-width: none;
+    min-height: 150px;
+    min-width: 250px;
+    max-width: 350px;   
+}
+
+
+form input[type="submit"] {
+    width: 60px;
+    margin-inline: auto;
+    font-size: .75rem;
+    color: #fff;
+    background: #0e5210;
+    padding-block: .3rem;   
+    border: none;
+    border-radius: 5px;   
+    cursor: pointer;   
+    text-align: center;
+    text-decoration: none;
+    transition: all 100ms linear;
+    border: solid 2px #108113;
+}
+
+form input[type="submit"]:hover {
+    background: #108113;
+}
+    
