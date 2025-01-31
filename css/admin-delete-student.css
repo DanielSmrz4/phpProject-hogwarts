@@ -9,27 +9,18 @@ main {
     padding: 2rem .75rem;
 }
 
-
-/* Top part + description */
-.one-student {
-    padding-inline: .75rem;
-    max-width: 500px;
+.delete-form form {
+    max-width: 300px;
     margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-.error-message {
-    display: block;
-    text-align: center;
-    padding-block: 3rem;
-}
-
-
-/* Name and back button */
 .top-part {
     display: flex;
     justify-content: space-between;
     align-items: end;
-    gap: 1rem;
 }
 
 .top-part h2 {
@@ -52,36 +43,22 @@ main {
     text-decoration: underline;
 }
 
-
-/* Description window */
-.description {   
+.message-text {
+    min-height: 100px;
     padding: 1rem;
-    margin-block: 1rem;
     background-color: #ffffff20;
     backdrop-filter: blur(5px);
     border-radius: 5px;
-
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: center;
     display: flex;
-    flex-direction: column;
-    gap: .75rem;
-}
-
-.description .stand-out {
-    color: #c39c00;
-}
-
-
-/* Buttons */
-.buttons {
-    max-width: 500px;
-    margin-inline: auto;
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
     align-items: center;
 }
 
-.buttons a {
+.delete-btn {
+    background: #821901;
     display: inline;
     font-size: .75rem;
     padding: .3rem .5rem;
@@ -90,26 +67,12 @@ main {
     border-radius: 5px;
     cursor: pointer;
     width: 60px;
+    margin-inline: auto;
     text-align: center;
     text-decoration: none;
     transition: all 100ms linear;
 }
 
-.edit-btn {
-    background: #043f76;
-    /* outline: solid 2px #085cab; */
-}
-
-.edit-btn:hover {
-    background: #085cab;
-} 
-
-.delete-btn {
-    background: #821901;
-    /* outline: solid 2px #aa2102; */
-}
-
 .delete-btn:hover {
     background: #aa2102;
 }
-    

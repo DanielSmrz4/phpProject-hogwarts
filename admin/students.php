@@ -66,6 +66,6 @@
 
     <?php require "../assets/footer.php"; ?>
     <script src="../js/header.js"></script>     
-    <script src="../js/filter.js"></script>     
+    <script src="../js/filter2.js"></script>     
 </body>
 </html>

@@ -1,0 +1,72 @@
+main {
+    min-height: 95svh;
+    background: linear-gradient(#000, rgba(0,0,0,0.5)), url("../img/hogwarts-admin-background-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    padding-inline: .75rem;
+}
+
+.upload-photos h1 {
+    text-align: center;
+    font-size: clamp(1rem, 1rem + 5vw, 2.5rem);
+    letter-spacing: 1px;
+    font-weight: 300;
+    padding-block: 3rem;
+}
+
+.upload-photos {
+    border: solid 1px lime;
+    padding-block-end: 1rem;
+}
+
+.upload-photos form {
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+#choose-file {
+    display: none;
+}
+
+#choose-file-text {
+    width: 60px;
+    font-size: .75rem;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #977900;
+    padding: .3rem .5rem;
+    transition: all 100ms linear;
+}
+
+#choose-file-text:hover {
+    background: #c39c00;
+}
+
+.upload-file {
+    width: 60px;
+    font-size: .75rem;
+    color: #fff;
+    border: none;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #977900;
+    padding: .3rem .5rem;
+    transition: all 100ms linear;
+}
+
+.upload-file:hover {
+    background: #c39c00;
+}
+
+
+.images {
+
+}

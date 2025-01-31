@@ -6,33 +6,15 @@ main {
     background-position: center;
     background-attachment: fixed;
     color: #fff;
-    padding: 2rem .75rem;
+    padding-inline: .75rem;
 }
 
-.top-part {
-    max-width: 300px;
-    margin-inline: auto;
-    padding-block-end: 1rem;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-}
-
-.top-part h2 {
+.main-heading h1 {
+    text-align: center;
+    font-size: clamp(1rem, 1rem + 5vw, 2.5rem);
+    letter-spacing: 1px;
     font-weight: 300;
-    font-size: 1.75rem;
-}
-
-.top-part a {
-    color: #c39c00;
-    font-size: .75rem;
-    text-decoration: none;
-    text-underline-offset: 2px;
-}
-
-.top-part a:hover {
-    text-decoration: underline;
+    padding-block: 3rem 2.5rem;
 }
 
 .errors {
@@ -85,7 +67,7 @@ form input[type="submit"] {
     text-align: center;
     text-decoration: none;
     transition: all 100ms linear;
-    border: solid 2px #108113;
+    margin-block-start: .5rem;
 }
 
 form input[type="submit"]:hover {

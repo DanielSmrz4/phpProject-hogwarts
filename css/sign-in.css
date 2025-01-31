@@ -52,6 +52,7 @@
     text-align: center;
     text-decoration: none;
     transition: all 100ms linear;
+    margin-block-start: .5rem;
 }
 
 .btn:hover {

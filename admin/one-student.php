@@ -50,12 +50,16 @@
             <?php if($student === null or $student === false): ?>
                 <p class="error-message">Student not found</p>
             <?php else: ?>
+                <div class="top-part">
                     <h2><?php echo htmlspecialchars($student["first_name"]). " ".htmlspecialchars($student["second_name"]) ?></h2>
-                    <div class="description">
-                        <p><span class="stand-out">Age:</span> <?= htmlspecialchars($student["age"]) ?> let</p>
-                        <p><span class="stand-out">Student records:</span> <?= htmlspecialchars($student["life"]) ?></p>
-                        <p><span class="stand-out">Collegde:</span> <?= htmlspecialchars($student["colledge"]) ?></p>
-                    </div>                                   
+                    <a href="./students.php">Back</a>
+                </div>
+                
+                <div class="description">
+                    <p><span class="stand-out">Age:</span> <?= htmlspecialchars($student["age"]) ?> let</p>
+                    <p><span class="stand-out">Student records:</span> <?= htmlspecialchars($student["life"]) ?></p>
+                    <p><span class="stand-out">Collegde:</span> <?= htmlspecialchars($student["colledge"]) ?></p>
+                </div>                                   
             <?php endif ?>
         </section>
 

@@ -15,6 +15,10 @@ header {
 
 /* NAVIGACE */
 
+header nav {
+    z-index: 9999;
+}
+
 nav li {
     display: inline-block;
     list-style-type: none;

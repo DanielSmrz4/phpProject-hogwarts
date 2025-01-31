@@ -38,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../query/header-query.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/admin-delete-student.css">
 
     <script src="https://kit.fontawesome.com/0f9ae4d401.js" crossorigin="anonymous"></script>
 
@@ -49,11 +50,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <main>
 
         <?php if($role === "admin"): ?>
-            <section class="delete-from">
+            <section class="delete-form">
                 <form method="POST">
-                    <a href="./one-student.php?id=<?=$one_student['id']?>">Zpět</a>
-                    <p>Do you really wish to delete student <?= $one_student["first_name"] ." ". $one_student["second_name"]?>?</p>
-                    <button>Delete</button>               
+                    <div class="top-part">
+                        <h2>Delete student</h2>
+                        <a href="./one-student.php?id=<?=$one_student['id']?>">Back</a>
+                    </div>
+                    <p class="message-text">Do you really wish to delete student <?= $one_student["first_name"] ." ". $one_student["second_name"]?>?</p>                                     
+                    <button class="delete-btn">Delete</button>               
                 </form>
             </section>
         <?php else: ?>

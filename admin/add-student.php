@@ -88,9 +88,8 @@
 
     <main>
         <section class="add-form">
-            <div class="top-part">
-                <h2>Add new</h2>
-                <a href="./students.php">Back</a>
+            <div class="main-heading">
+                <h1>Add new</h1>
             </div>
             <div class="errors">
                 <?php if($errors): ?>

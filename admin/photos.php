@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../query/header-query.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/admin-photos.css">
 
     <script src="https://kit.fontawesome.com/0f9ae4d401.js" crossorigin="anonymous"></script>
 
@@ -41,15 +42,16 @@
         <section class="upload-photos">
             <h1>Images</h1>
             <form action="./upload-photos.php" method="POST" enctype="multipart/form-data">
-                <input type="file" name="image" required>
-                <input type="submit" name="submit" value="Upload">
+                <label for="choose-file" id="choose-file-text">Search</label>
+                <input type="file" name="image" id="choose-file" required>
+                <input type="submit" class="upload-file" name="submit" value="Upload">
             </form>
         </section>
 
         <section class="images">
-            <article>
+            <article class="all-photos">
                 <?php foreach($all_images as $one_image): ?>
-                    <div>
+                    <div class="one-photo">
                         <div>
                             <img src=<?="../uploads/". $user_id ."/". $one_image["image_name"]?>>
                         </div>
@@ -57,8 +59,7 @@
                             <a href=<?="../uploads/". $user_id ."/". $one_image["image_name"]?> download="download-img">Downlaod</a>
                             <a href="delete-photo.php?id=<?=$user_id?>&image_name=<?=$one_image["image_name"]?>">Delete</a>
                         </div>
-                    </div>
-                    
+                    </div>                    
                 <?php endforeach; ?>
             </article>
         </section>
